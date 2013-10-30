@@ -1,4 +1,0 @@
-my-shiro
-========
-
-shiro cas
