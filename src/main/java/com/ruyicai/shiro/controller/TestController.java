@@ -15,7 +15,7 @@ public class TestController {
 	@RequestMapping("/index")
 	public ModelAndView index(ModelAndView mav) {
 		logger.info("/test/index");
-		mav.addObject("message", "这里是主页");
+		mav.addObject("message", "这是设置的message");
 		mav.setViewName("showMessage");
 		return mav;
 	}
