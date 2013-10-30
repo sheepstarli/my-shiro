@@ -5,13 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 
 @RooJavaBean
-@RooJpaActiveRecord
-@RooJpaEntity(table = "roles")
+@RooEntity(table = "roles")
 public class Role {
 	
 	@Id

@@ -10,7 +10,7 @@
         <aspectj.version>1.7.2</aspectj.version>
         <java.version>6</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <roo.version>1.2.4.RELEASE</roo.version>
+        <roo.version>1.1.5.RELEASE</roo.version>
         <slf4j.version>1.7.5</slf4j.version>
         <spring.version>3.2.3.RELEASE</spring.version>
     </properties>
@@ -298,6 +298,11 @@
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-web</artifactId>
 			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-cas</artifactId>
+		    <version>1.2.2</version>
 		</dependency>
     </dependencies>
     

@@ -3,7 +3,8 @@
 
 package com.ruyicai.shiro.domain;
 
-import com.ruyicai.shiro.domain.Role;
+import java.lang.Long;
+import java.lang.String;
 
 privileged aspect Role_Roo_JavaBean {
     

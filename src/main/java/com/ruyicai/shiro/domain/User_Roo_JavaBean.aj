@@ -4,7 +4,8 @@
 package com.ruyicai.shiro.domain;
 
 import com.ruyicai.shiro.domain.Role;
-import com.ruyicai.shiro.domain.User;
+import java.lang.Long;
+import java.lang.String;
 import java.util.Set;
 
 privileged aspect User_Roo_JavaBean {

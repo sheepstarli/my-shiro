@@ -3,7 +3,6 @@
 
 package com.ruyicai.shiro.domain;
 
-import com.ruyicai.shiro.domain.Role;
 import org.springframework.beans.factory.annotation.Configurable;
 
 privileged aspect Role_Roo_Configurable {
