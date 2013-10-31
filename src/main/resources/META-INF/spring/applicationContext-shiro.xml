@@ -24,7 +24,7 @@
     <bean id="casRealm" class="org.apache.shiro.cas.CasRealm">
     	<property name="defaultRoles" value="ROLE_USER" />
     	<property name="casServerUrlPrefix" value="http://localhost:8090/cas/" />
-    	<property name="casService" value="http://localhost:8000/my-shiro" />
+    	<property name="casService" value="http://localhost:8000/my-shiro/shiro-cas" />
     </bean>
     
     <!-- 用户增加Remember Me功能 -->
@@ -40,14 +40,16 @@
          PropertiesPlaceholderConfigurer and abstract beans or anything else we might need: -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login.jsp"/>
-        <property name="successUrl" value="/index"/>
+        <!-- <property name="loginUrl" value="/login.jsp"/> -->
+        <property name="loginUrl" value="http://localhost:8090/cas/login?service=http://localhost:8000/my-shiro/shiro-cas"/>
+       <!--  <property name="successUrl" value="/index"/> -->
         <property name="unauthorizedUrl" value="/dataAccessFailure"/>
         <!-- The 'filters' property is usually not necessary unless performing an override, which we
              want to do here (make authc point to a PassthruAuthenticationFilter instead of the
              default FormAuthenticationFilter: -->
         <property name="filters">
              <map>
+             	<entry key="casFilter" value-ref="casFilter"></entry>
                 <entry key="anyRoles">
                     <bean class="com.ruyicai.shiro.security.AnyRolesAuthorizationFilter"/>
                 </entry>
@@ -55,14 +57,11 @@
         </property>
         <property name="filterChainDefinitions">
             <value>
-                /index = user
-                /test/index = user,roles[ROLE_USER]
-                /login = anon
-                /test1/** = anon
-                /test2/test2_1.jsp = user
-                /test2/test2_2.jsp = user
-                /test3/test3_1.jsp = user,roles[developer,admin]
-                /test3/test3_2.jsp = user,anyRoles[ROLE_USER,developer,admin]
+            	/shiro-cas = casFilter
+            	/test/index = anyRoles[ROLE_USER,admin]
+                /test1/** = roles[ROLE_USER]
+                /test2/** = roles[admin]
+                /test3/** = anyRoles[ROLE_USER,admin]
                 /** = anon
             </value>
         </property>

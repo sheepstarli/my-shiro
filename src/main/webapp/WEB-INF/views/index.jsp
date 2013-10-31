@@ -7,6 +7,6 @@
 <title>主页</title>
 </head>
 <body>
-这是主页
+这是主页 Message：${message }
 </body>
 </html>
