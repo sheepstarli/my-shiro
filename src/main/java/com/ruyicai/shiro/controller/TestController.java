@@ -31,7 +31,7 @@ public class TestController {
 				logger.info("principalCollection 不为空");
 				List principals = principalCollection.asList();
 				Map<String, String> attributes = (Map<String, String>) principals.get(1);
-				message = "username:" + attributes.get("username") + "  mobileid:" + attributes.get("mobileid") + "  address:" + attributes.get("mobileid");
+				message = "username:" + attributes.get("username") + "  mobileid:" + attributes.get("mobileid") + "  address:" + attributes.get("mobileid") + " rolenames:" + attributes.get("rolenames");
 			} else {
 				logger.info("principalCollection 空");
 			}

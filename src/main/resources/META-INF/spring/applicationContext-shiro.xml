@@ -25,6 +25,7 @@
     	<property name="defaultRoles" value="ROLE_USER" />
     	<property name="casServerUrlPrefix" value="http://localhost:8090/cas/" />
     	<property name="casService" value="http://localhost:8000/my-shiro/shiro-cas" />
+    	<!-- <property name="roleAttributeNames" value="rolenames" /> -->
     </bean>
     
     <!-- 用户增加Remember Me功能 -->
@@ -38,7 +39,8 @@
          web.xml uses the DelegatingFilterProxy to access this bean.  This allows us
          to wire things with more control as well utilize nice Spring things such as
          PropertiesPlaceholderConfigurer and abstract beans or anything else we might need: -->
-    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+    <!-- <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean"> -->
+    <bean id="shiroFilter" class="com.ruyicai.shiro.security.MyShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <!-- <property name="loginUrl" value="/login.jsp"/> -->
         <property name="loginUrl" value="http://localhost:8090/cas/login?service=http://localhost:8000/my-shiro/shiro-cas"/>
@@ -58,10 +60,10 @@
         <property name="filterChainDefinitions">
             <value>
             	/shiro-cas = casFilter
-            	/test/index = anyRoles[ROLE_USER,admin]
-                /test1/** = roles[ROLE_USER]
-                /test2/** = roles[admin]
-                /test3/** = anyRoles[ROLE_USER,admin]
+            	/test/index = anyRoles[ROLE_USER,ROLE_ADMIN]
+                /test1/** = roles[ROLE_ADMIN,ROLE_statics]
+                /test2/** = roles[ROLE_DEVELOPER,ROLE_mgr]
+                /test3/** = anyRoles[ROLE_USER,ROLE_statics]
                 /** = anon
             </value>
         </property>

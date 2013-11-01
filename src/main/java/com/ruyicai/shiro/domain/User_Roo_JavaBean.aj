@@ -34,6 +34,14 @@ privileged aspect User_Roo_JavaBean {
         this.password = password;
     }
     
+    public String User.getRolenames() {
+        return this.rolenames;
+    }
+    
+    public void User.setRolenames(String rolenames) {
+        this.rolenames = rolenames;
+    }
+    
     public Set<Role> User.getRoles() {
         return this.roles;
     }
