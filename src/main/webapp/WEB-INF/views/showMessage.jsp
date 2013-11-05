@@ -7,6 +7,7 @@
 <title>这里是ShowMessage</title>
 </head>
 <body>
-Message：${message }
+Message：${message } <br/>
+<a href="http://localhost:8090/cas/logout?service=http://localhost:8000/my-shiro/test/index">退出登录</a><br/>
 </body>
 </html>
